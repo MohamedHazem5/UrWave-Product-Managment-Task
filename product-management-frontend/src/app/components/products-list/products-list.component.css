@@ -134,3 +134,40 @@
     justify-content: center;
   }
 }
+/* Add application styles & imports to this file! */
+
+.search-input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 250px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  background-color: #fff;
+  color: #495057;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2196F3;
+  box-shadow: 0 0 0 0.2rem rgba(33, 150, 243, 0.25);
+}
+
+.search-input::placeholder {
+  color: #6c757d;
+  opacity: 0.8;
+}
+
+/* Ensure proper spacing in the table header */
+.table-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+/* Make sure the search input is responsive */
+@media (max-width: 768px) {
+  .search-input {
+    min-width: 200px;
+  }
+}

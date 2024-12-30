@@ -1,15 +1,23 @@
 <div class="product-table-container">
   <div class="table-header">
     <h2 class="table-title">Products</h2>
-    <button (click)="navigateToCreateProduct()" class="create-button">
-      <fa-icon [icon]="faPlus"></fa-icon>
-      Create Product
-    </button>
-
+    <div class="table-actions">
+      <input
+        type="text"
+        placeholder="Search by product name"
+        [(ngModel)]="searchTerm"
+        (input)="filterProducts()"
+        class="search-input"
+      />
+      <button (click)="navigateToCreateProduct()" class="create-button">
+        <fa-icon [icon]="faPlus"></fa-icon>
+        Create Product
+      </button>
+    </div>
   </div>
 
   <p-table
-    [value]="products"
+    [value]="filteredProducts"
     [paginator]="true"
     [rows]="10"
     [loading]="loading"
@@ -17,15 +25,33 @@
     [rowHover]="true"
     responsiveLayout="scroll"
     [showCurrentPageReport]="true"
-    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products">
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} products"
+    [sortField]="sortField"
+    [sortOrder]="sortOrder"
+    (onSort)="onSort($event)">
 
     <ng-template pTemplate="header">
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Created Date</th>
+        <th pSortableColumn="id">
+          ID
+          <p-sortIcon field="id"></p-sortIcon>
+        </th>
+        <th pSortableColumn="name">
+          Name
+          <p-sortIcon field="name"></p-sortIcon>
+        </th>
+        <th pSortableColumn="description">
+          Description
+          <p-sortIcon field="description"></p-sortIcon>
+        </th>
+        <th pSortableColumn="price">
+          Price
+          <p-sortIcon field="price"></p-sortIcon>
+        </th>
+        <th pSortableColumn="createdDate">
+          Created Date
+          <p-sortIcon field="createdDate"></p-sortIcon>
+        </th>
         <th>Actions</th>
       </tr>
     </ng-template>
@@ -42,7 +68,6 @@
             <button class="edit-button" (click)="navigateToEditProduct(product.id)">
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
-
             <button class="delete-button" (click)="deleteProduct(product.id)">
               <fa-icon [icon]="faTrash"></fa-icon>
             </button>
