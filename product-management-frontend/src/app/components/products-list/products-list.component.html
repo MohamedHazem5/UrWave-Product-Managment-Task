@@ -1,10 +1,11 @@
 <div class="product-table-container">
   <div class="table-header">
     <h2 class="table-title">Products</h2>
-    <button routerLink="/products/create" class="create-button">
+    <button (click)="navigateToCreateProduct()" class="create-button">
       <fa-icon [icon]="faPlus"></fa-icon>
       Create Product
     </button>
+
   </div>
 
   <p-table

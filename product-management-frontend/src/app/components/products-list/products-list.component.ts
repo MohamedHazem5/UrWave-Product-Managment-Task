@@ -5,6 +5,7 @@ import { ButtonModule } from 'primeng/button';
 import { ProductService, Product } from '../../services/product.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPlus,faEdit,faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-products-list',
@@ -20,12 +21,15 @@ export class ProductsListComponent implements OnInit {
     products: Product[] = [];
     loading = true;
 
-    constructor(private productService: ProductService) {}
+    constructor(private productService: ProductService,private router: Router) {}
 
     ngOnInit(): void {
         this.loadProducts();
     }
 
+    navigateToCreateProduct(): void {
+      this.router.navigate(['/products/create']);
+    }
     loadProducts(): void {
         this.productService.getProducts().subscribe({
             next: (data) => {

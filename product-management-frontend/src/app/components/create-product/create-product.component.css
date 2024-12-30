@@ -1,0 +1,191 @@
+/* Input field styles */
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: #64748b;
+  z-index: 1;
+}
+
+/* Base input styles */
+.p-inputtext,
+.p-inputtextarea,
+.p-inputnumber-input {
+  width: 100% !important;
+  padding: 0.75rem 1rem 0.75rem 2.5rem !important;
+  border: 2px solid #e2e8f0 !important;
+  border-radius: 8px !important;
+  transition: all 0.3s ease !important;
+  font-size: 1rem !important;
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+
+/* Focus states */
+.p-inputtext:focus,
+.p-inputtextarea:focus,
+.p-inputnumber-input:focus {
+  border-color: #3b82f6 !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1) !important;
+  outline: none !important;
+}
+
+/* Hover states */
+.p-inputtext:hover:not(:focus),
+.p-inputtextarea:hover:not(:focus),
+.p-inputnumber-input:hover:not(:focus) {
+  border-color: #cbd5e1 !important;
+}
+
+/* Error states */
+.input-error .p-inputtext,
+.input-error .p-inputtextarea,
+.input-error .p-inputnumber-input {
+  border-color: #ef4444 !important;
+}
+
+/* Textarea specific */
+.p-inputtextarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-title {
+  font-size: 1.875rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: #64748b;
+  font-size: 1rem;
+}
+
+.product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field-label {
+  font-weight: 500;
+  color: #475569;
+  font-size: 0.875rem;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 1rem;
+  color: #94a3b8;
+  font-size: 1rem;
+}
+
+/* Style all inputs */
+:host ::ng-deep .p-inputtext,
+:host ::ng-deep .p-inputtextarea,
+:host ::ng-deep .p-inputnumber-input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.5rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+/* Input focus styles */
+:host ::ng-deep .p-inputtext:focus,
+:host ::ng-deep .p-inputtextarea:focus,
+:host ::ng-deep .p-inputnumber-input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+/* Textarea specific styles */
+.textarea-container textarea {
+  padding-left: 2.5rem !important;
+  resize: vertical;
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.form-actions {
+  margin-top: 1rem;
+}
+
+/* Submit button styles */
+:host ::ng-deep .submit-button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #2563eb;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+:host ::ng-deep .submit-button:enabled:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+:host ::ng-deep .submit-button:enabled:active {
+  transform: translateY(0);
+}
+
+:host ::ng-deep .submit-button.p-button-lg {
+  font-size: 1rem;
+}
+
+:host ::ng-deep .submit-button:disabled {
+  background-color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Responsive styles */
+@media (max-width: 640px) {
+  .form-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  .form-title {
+    font-size: 1.5rem;
+  }
+}

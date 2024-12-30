@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
@@ -10,7 +11,14 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-create-product',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, InputTextModule, InputNumberModule, ButtonModule],
+    imports: [
+      CommonModule,
+      ReactiveFormsModule,
+      InputTextModule,
+      TextareaModule,
+      InputNumberModule,
+      ButtonModule
+    ],
     templateUrl: './create-product.component.html',
     styleUrls: ['./create-product.component.css'],
 })
@@ -39,6 +47,11 @@ export class CreateProductComponent {
               error: () => alert('Failed to create product.'),
           });
       }
+  }
+
+  hasError(field: string): boolean {
+    const control = this.productForm.get(field);
+    return !!control && control.invalid && control.touched;
   }
 
 }

@@ -1,27 +1,77 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-  <div class="field">
-      <label for="name">Name</label>
-      <input id="name" formControlName="name" pInputText />
-      <small *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
-          Name is required and must be less than 100 characters.
-      </small>
+<div class="form-container">
+  <div class="form-header">
+    <h2 class="form-title">Create New Product</h2>
+    <p class="form-subtitle">Fill in the details below to create a new product</p>
   </div>
 
-  <div class="field">
-      <label for="description">Description</label>
-      <textarea id="description" formControlName="description" pInputTextarea></textarea>
-      <small *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched">
-          Description is required and must be less than 500 characters.
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="product-form">
+    <div class="form-field">
+      <label for="name" class="field-label">Product Name</label>
+      <div class="input-container">
+        <i class="fas fa-box input-icon"></i>
+        <input
+          id="name"
+          formControlName="name"
+          pInputText
+          class="p-inputtext-lg"
+          placeholder="Enter product name"
+        />
+      </div>
+      <small class="error-message" *ngIf="hasError('name')">
+        Name is required and must be less than 100 characters.
       </small>
-  </div>
+    </div>
 
-  <div class="field">
-      <label for="price">Price</label>
-      <input id="price" formControlName="price" pInputNumber />
-      <small *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
-          Price is required and must be positive.
+    <div class="form-field">
+      <label for="description" class="field-label">Description</label>
+      <div class="input-container textarea-container">
+        <i class="fas fa-align-left input-icon"></i>
+        <textarea
+          id="description"
+          formControlName="description"
+          pInputText
+          [rows]="5"
+          placeholder="Enter product description"
+          class="p-inputtext-lg"
+          maxlength="500"
+        ></textarea>
+      </div>
+      <small class="error-message" *ngIf="hasError('description')">
+        Description is required and must be less than 500 characters.
       </small>
-  </div>
+    </div>
 
-  <button pButton type="submit" label="Create Product" [disabled]="productForm.invalid"></button>
-</form>
+    <div class="form-field">
+      <label for="price" class="field-label">Price</label>
+      <div class="input-container">
+        <i class="fas fa-tag input-icon"></i>
+        <input
+          id="price"
+          formControlName="price"
+          pInputText
+          placeholder="0.00"
+          mode="currency"
+          currency="USD"
+          [min]="0"
+          locale="en-US"
+          type="number"
+          class="p-inputtext-lg"
+        />
+      </div>
+      <small class="error-message" *ngIf="hasError('price')">
+        Price is required and must be positive.
+      </small>
+    </div>
+
+    <div class="form-actions">
+      <button
+        pButton
+        type="submit"
+        label="Create Product"
+        icon="fas fa-plus"
+        [disabled]="productForm.invalid"
+        class="submit-button p-button-lg"
+      ></button>
+    </div>
+  </form>
+</div>

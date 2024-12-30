@@ -168,3 +168,4 @@ D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\ru\M
 D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\obj\Debug\net8.0\ProductManagementSystem.sourcelink.json
