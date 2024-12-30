@@ -6,6 +6,7 @@ import { ProductService, Product } from '../../services/product.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPlus,faEdit,faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { SweetalertService } from '../../services/sweetalert.service';
 
 @Component({
     selector: 'app-products-list',
@@ -21,7 +22,12 @@ export class ProductsListComponent implements OnInit {
     products: Product[] = [];
     loading = true;
 
-    constructor(private productService: ProductService,private router: Router) {}
+    constructor(
+      private productService: ProductService,
+      private router: Router,
+      private sweetalertService: SweetalertService,
+
+    ) {}
 
     ngOnInit(): void {
         this.loadProducts();
@@ -35,24 +41,38 @@ export class ProductsListComponent implements OnInit {
     }
 
     loadProducts(): void {
-        this.productService.getProducts().subscribe({
-            next: (data) => {
-                this.products = data;
-                this.loading = false;
-            },
-            error: () => {
-                this.loading = false;
-                alert('Failed to load products.');
-            },
-        });
+      this.loading = true; // Show a loading spinner or indicator
+      this.productService.getProducts().subscribe({
+        next: (data) => {
+          this.products = data;
+          this.loading = false;
+        },
+        error: () => {
+          this.loading = false;
+          this.sweetalertService.showError(
+            'Failed to load products. Please try again later.',
+            'Error Loading Products'
+          );
+        },
+      });
     }
 
     deleteProduct(id: number): void {
-        if (confirm('Are you sure you want to delete this product?')) {
+      // Use SweetAlert2 for confirmation
+      this.sweetalertService
+        .confirmAction('Are you sure you want to delete this product?', 'Delete Product')
+        .then((result) => {
+          if (result.isConfirmed) {
+            // Proceed with deletion if confirmed
             this.productService.deleteProduct(id).subscribe({
-                next: () => this.loadProducts(),
-                error: () => alert('Failed to delete product.'),
+              next: () => {
+                this.sweetalertService.showSuccess('Product deleted successfully.');
+                this.loadProducts(); // Reload the product list
+              },
+              error: () =>
+                this.sweetalertService.showError('Failed to delete the product.'),
             });
-        }
+          }
+        });
     }
 }

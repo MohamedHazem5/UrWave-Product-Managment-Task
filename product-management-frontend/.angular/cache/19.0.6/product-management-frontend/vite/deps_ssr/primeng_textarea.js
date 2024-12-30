@@ -3,11 +3,11 @@ import {
   BaseComponent,
   BaseStyle
 } from "./chunk-RJBE45TD.js";
+import "./chunk-44BQDDNG.js";
 import {
   NgControl,
   NgModel
 } from "./chunk-OO52LHXI.js";
-import "./chunk-44BQDDNG.js";
 import "./chunk-2M2HMFBT.js";
 import {
   Directive,

@@ -7,6 +7,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
+import { SweetalertService } from '../../services/sweetalert.service';
 
 @Component({
     selector: 'app-create-product',
@@ -28,7 +29,9 @@ export class CreateProductComponent {
     constructor(
         private fb: FormBuilder,
         private productService: ProductService,
-        private router: Router
+        private router: Router,
+        private sweetalertService: SweetalertService,
+
     ) {
         this.productForm = this.fb.group({
             name: ['', [Validators.required, Validators.maxLength(100)]],
@@ -39,16 +42,32 @@ export class CreateProductComponent {
 
     onSubmit(): void {
       if (this.productForm.valid) {
-          this.productService.createProduct(this.productForm.value).subscribe({
-              next: () => {
-                  alert('Product created successfully!');
-                  this.router.navigate(['/products']);
-              },
-              error: () => alert('Failed to create product.'),
-          });
+        this.productService.createProduct(this.productForm.value).subscribe({
+          next: () => {
+            this.sweetalertService
+              .showSuccess('Product created successfully!', 'Success')
+              .then(() => {
+                this.router.navigate(['/products']);
+              });
+          },
+          error: () => {
+            this.sweetalertService.showError(
+              'Failed to create product. Please try again later.',
+              'Error Creating Product'
+            );
+          },
+        });
+      } else {
+        this.sweetalertService.showError(
+          'Please fill out all required fields correctly.',
+          'Invalid Form Submission'
+        );
       }
-  }
+    }
 
+  navigateToProductPage() {
+    this.router.navigate(['/products']);
+  }
   hasError(field: string): boolean {
     const control = this.productForm.get(field);
     return !!control && control.invalid && control.touched;

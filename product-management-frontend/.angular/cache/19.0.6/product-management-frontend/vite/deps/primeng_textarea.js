@@ -1,11 +1,11 @@
 import {
-  BaseComponent,
-  BaseStyle
-} from "./chunk-2KFJNJD2.js";
-import {
   NgControl,
   NgModel
 } from "./chunk-QTX5INRL.js";
+import {
+  BaseComponent,
+  BaseStyle
+} from "./chunk-2KFJNJD2.js";
 import "./chunk-7AG2MORC.js";
 import "./chunk-7W4CBEVT.js";
 import {

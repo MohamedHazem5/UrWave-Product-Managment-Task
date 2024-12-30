@@ -8,6 +8,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { TextareaModule } from 'primeng/textarea';
 import { ButtonModule } from 'primeng/button';
+import { SweetalertService } from '../../services/sweetalert.service';
 
 @Component({
   selector: 'app-edit-product',
@@ -25,7 +26,9 @@ export class EditProductComponent implements OnInit {
     private fb: FormBuilder,
     private productService: ProductService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private sweetalertService: SweetalertService,
+
   ) {}
 
   ngOnInit() {
@@ -39,34 +42,52 @@ export class EditProductComponent implements OnInit {
     this.loadProduct();
   }
 
-  loadProduct() {
+  loadProduct(): void {
     this.productService.getProduct(this.productId).subscribe({
       next: (product) => {
         this.editProductForm.patchValue({
           name: product.name,
           description: product.description,
-          price: product.price
+          price: product.price,
         });
       },
       error: (error) => {
         console.error('Error loading product:', error);
-        alert('Error loading product details');
-      }
+        this.sweetalertService.showError(
+          'Failed to load product details. Please try again later.',
+          'Error Loading Product'
+        );
+      },
     });
   }
 
-  onSubmit() {
+
+  onSubmit(): void {
     if (this.editProductForm.valid) {
       this.productService.updateProduct(this.productId, this.editProductForm.value).subscribe({
         next: () => {
-          alert('Product updated successfully');
-          this.router.navigate(['/products']);
+          this.sweetalertService
+            .showSuccess('Product updated successfully', 'Success')
+            .then(() => {
+              this.router.navigate(['/products']); // Navigate after showing the success message
+            });
         },
         error: () => {
-          alert('An error occurred while updating the product');
-        }
+          this.sweetalertService.showError(
+            'An error occurred while updating the product. Please try again later.',
+            'Error Updating Product'
+          );
+        },
       });
+    } else {
+      this.sweetalertService.showError(
+        'Please fill in all required fields correctly.',
+        'Invalid Form Submission'
+      );
     }
+  }
+  navigateToProductPage() {
+    this.router.navigate(['/products']);
   }
   hasError(field: string): boolean {
     const control = this.editProductForm.get(field);

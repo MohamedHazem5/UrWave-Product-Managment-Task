@@ -1,3 +1,24 @@
+.top-left-button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.back-button {
+  background-color: #64748b;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.back-button:hover {
+  background-color: #e0e0e0;
+}
+
+
 /* Input field styles */
 .input-container {
   position: relative;
