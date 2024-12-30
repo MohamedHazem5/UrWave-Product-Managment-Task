@@ -1,0 +1,27 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="field">
+      <label for="name">Name</label>
+      <input id="name" formControlName="name" pInputText />
+      <small *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched">
+          Name is required and must be less than 100 characters.
+      </small>
+  </div>
+
+  <div class="field">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" pInputTextarea></textarea>
+      <small *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched">
+          Description is required and must be less than 500 characters.
+      </small>
+  </div>
+
+  <div class="field">
+      <label for="price">Price</label>
+      <input id="price" formControlName="price" pInputNumber />
+      <small *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched">
+          Price is required and must be positive.
+      </small>
+  </div>
+
+  <button pButton type="submit" label="Create Product" [disabled]="productForm.invalid"></button>
+</form>
