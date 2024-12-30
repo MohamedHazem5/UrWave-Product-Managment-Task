@@ -39,9 +39,10 @@
         <td>{{ product.createdDate | date }}</td>
         <td>
           <div class="action-buttons">
-            <button class="edit-button" >
+            <button class="edit-button" (click)="navigateToEditProduct(product.id)">
               <fa-icon [icon]="faEdit"></fa-icon>
             </button>
+
             <button class="delete-button" (click)="deleteProduct(product.id)">
               <fa-icon [icon]="faTrash"></fa-icon>
             </button>

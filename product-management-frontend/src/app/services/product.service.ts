@@ -28,8 +28,11 @@ export class ProductService {
       return this.http.post<Product>(`${this.baseUrl}/products`, product);
   }
 
-  updateProduct(product: Product): Observable<Product> {
-      return this.http.put<Product>(`${this.baseUrl}/products/${product.id}`, product);
+  getProduct(id: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/products/${id}`);
+  }
+  updateProduct(id: number, product: any): Observable<any> {
+    return this.http.put(`${this.baseUrl}/products/${id}`, product);
   }
 
   deleteProduct(id: number): Observable<void> {

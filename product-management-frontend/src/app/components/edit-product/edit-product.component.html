@@ -1,0 +1,77 @@
+<div class="form-container">
+  <div class="form-header">
+    <h2 class="form-title">Edit Product</h2>
+    <p class="form-subtitle">Change the Values of the Product then click Save</p>
+  </div>
+
+  <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()" class="product-form">
+    <div class="form-field">
+      <label for="name" class="field-label">Product Name</label>
+      <div class="input-container">
+        <i class="fas fa-box input-icon"></i>
+        <input
+          id="name"
+          formControlName="name"
+          pInputText
+          class="p-inputtext-lg"
+          placeholder="Enter product name"
+        />
+      </div>
+      <small class="error-message" *ngIf="hasError('name')">
+        Name is required and must be less than 100 characters.
+      </small>
+    </div>
+
+    <div class="form-field">
+      <label for="description" class="field-label">Description</label>
+      <div class="input-container textarea-container">
+        <i class="fas fa-align-left input-icon"></i>
+        <textarea
+          id="description"
+          formControlName="description"
+          pInputText
+          [rows]="5"
+          placeholder="Enter product description"
+          class="p-inputtext-lg"
+          maxlength="500"
+        ></textarea>
+      </div>
+      <small class="error-message" *ngIf="hasError('description')">
+        Description is required and must be less than 500 characters.
+      </small>
+    </div>
+
+    <div class="form-field">
+      <label for="price" class="field-label">Price</label>
+      <div class="input-container">
+        <i class="fas fa-tag input-icon"></i>
+        <input
+          id="price"
+          formControlName="price"
+          pInputText
+          placeholder="0.00"
+          mode="currency"
+          currency="USD"
+          [min]="0"
+          locale="en-US"
+          type="number"
+          class="p-inputtext-lg"
+        />
+      </div>
+      <small class="error-message" *ngIf="hasError('price')">
+        Price is required and must be positive.
+      </small>
+    </div>
+
+    <div class="form-actions">
+      <button
+        pButton
+        type="submit"
+        label="Edit Product"
+        icon="fas fa-edit"
+        [disabled]="editProductForm.invalid"
+        class="submit-button p-button-lg"
+      ></button>
+    </div>
+  </form>
+</div>

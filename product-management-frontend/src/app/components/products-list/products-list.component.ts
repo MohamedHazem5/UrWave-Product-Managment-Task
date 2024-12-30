@@ -30,6 +30,10 @@ export class ProductsListComponent implements OnInit {
     navigateToCreateProduct(): void {
       this.router.navigate(['/products/create']);
     }
+    navigateToEditProduct(productId: number): void {
+      this.router.navigate(['/products/edit', productId]);
+    }
+
     loadProducts(): void {
         this.productService.getProducts().subscribe({
             next: (data) => {
