@@ -2,6 +2,7 @@
 
 A simple product management system built using .NET 8 Web **Minimal API** for the backend and Angular 19 with standalone components for the frontend.
 
+- `Time takes` = 24 Hours
 
 ### Installation
 
