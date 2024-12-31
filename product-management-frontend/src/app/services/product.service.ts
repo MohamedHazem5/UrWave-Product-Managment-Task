@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { finalize, tap } from 'rxjs/operators';
+import { LoadingService } from './loading.service'; // Import the LoadingService
 
 export interface Product {
   id: number;
@@ -12,31 +13,46 @@ export interface Product {
   imageUrl: string; // Bonus
 }
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
   private baseUrl = 'http://localhost:5145';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private loadingService: LoadingService) {}
 
   getProducts(): Observable<Product[]> {
-      return this.http.get<Product[]>(`${this.baseUrl}/products`);
+    this.loadingService.show();
+    return this.http.get<Product[]>(`${this.baseUrl}/products`).pipe(
+      finalize(() => this.loadingService.hide())
+    );
   }
 
   createProduct(product: Product): Observable<Product> {
-      return this.http.post<Product>(`${this.baseUrl}/products`, product);
+    this.loadingService.show();
+    return this.http.post<Product>(`${this.baseUrl}/products`, product).pipe(
+      finalize(() => this.loadingService.hide())
+    );
   }
 
   getProduct(id: number): Observable<any> {
-    return this.http.get(`${this.baseUrl}/products/${id}`);
+    this.loadingService.show();
+    return this.http.get(`${this.baseUrl}/products/${id}`).pipe(
+      finalize(() => this.loadingService.hide())
+    );
   }
+
   updateProduct(id: number, product: any): Observable<any> {
-    return this.http.put(`${this.baseUrl}/products/${id}`, product);
+    this.loadingService.show();
+    return this.http.put(`${this.baseUrl}/products/${id}`, product).pipe(
+      finalize(() => this.loadingService.hide())
+    );
   }
 
   deleteProduct(id: number): Observable<void> {
-      return this.http.delete<void>(`${this.baseUrl}/products/${id}`);
+    this.loadingService.show();
+    return this.http.delete<void>(`${this.baseUrl}/products/${id}`).pipe(
+      finalize(() => this.loadingService.hide())
+    );
   }
 }
