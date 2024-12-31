@@ -169,3 +169,10 @@ D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\tr\M
 D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 D:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\obj\Debug\net8.0\ProductManagementSystem.sourcelink.json
+d:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\Castle.Core.dll
+d:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\Moq.dll
+d:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\xunit.abstractions.dll
+d:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\xunit.assert.dll
+d:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\xunit.core.dll
+d:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\xunit.execution.dotnet.dll
+d:\Bussines\Interview Tasks\UrWave\ProductManagementSystem\bin\Debug\net8.0\Newtonsoft.Json.dll
