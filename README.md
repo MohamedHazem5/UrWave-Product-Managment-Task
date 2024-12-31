@@ -51,7 +51,7 @@ A simple product management system built using .NET 8 Web **Minimal API** for th
 
 - Open your browser and navigate to: [http://localhost:4200](http://localhost:4200)
 
-![Create Product Page](images/create_product.png)
+![Product Page](images/ListProducts.PNG)
 
 
 ## Back-End Features
@@ -63,6 +63,7 @@ A simple product management system built using .NET 8 Web **Minimal API** for th
 - Simple validation using FluentValidation
 - Uses request/response DTOs
 - Make endpoint groups for organization
+- `Add Seeding for database`
 
 ## Front-End Features
 1. **Products List Page**
@@ -73,27 +74,27 @@ A simple product management system built using .NET 8 Web **Minimal API** for th
    - Loading indicator [Bonus]
    - Price range filter [Bonus]
    - Image Url Preview [Bonus]
-   ![Products List Page](images/products_list.png)
+   ![Products List Page](images/ListProducts.PNG)
 
 2. **Create Product Page**
    - Form fields: Name, Description, Price (with validations).
    - Validation: Required fields, max character limits, and positive price value.
    - Notifications: Success and validation error messages.
 
-   ![Create Product Page](images/create_product.png)
+   ![Create Product Page](images/CreateProduct.PNG)
 
 3. **Edit Product Page**
    - Pre-filled form with product data for editing.
    - Same validations as the Create Product Page.
    - Notifications: Success/Error messages.
 
-   ![Edit Product Page](images/edit_product.png)
+   ![Edit Product Page](images/EditProductPage.PNG)
 
 4. **Delete Product**
    - Confirmation dialog before deletion.
    - Notifications: Success/Error messages.
 
-   ![Delete Product](images/delete_product.png)
+   ![Delete Product](images/DeleteProduct.PNG)
 
 ## Setup Instructions
 
@@ -113,27 +114,49 @@ A simple product management system built using .NET 8 Web **Minimal API** for th
 1. **Loading Indicators**
    - Added during API calls.
 
-   ![Loading Indicators](images/loading_indicators.png)
+   ![Loading Indicators](images/Loading.png)
 
 2. **Product Image URL Field**
    - Added a field for product image URLs and displayed images in the product list.
 
-   ![Product Images](images/product_images.png)
+   ![Product Images](images/imagePreviewInEdit.PNG)
 
-3. **Price Range Filter**
-   - Enabled filtering products by price range.
+3. **Search by name Filter**
+   - Enabled filtering products by product's name.
 
-   ![Price Range Filter](images/price_range_filter.png)
+   ![Search by name Filter](images/Searchbyname.PNG)
 
 4. **Basic Unit Tests**
    - Included tests for critical functionality.
 
-   ![Unit Tests](images/unit_tests.png)
-
 ## Submission Details
 
-- GitHub Repository URL: [Your Repository URL](https://github.com/your-repo-url)
-- Database Creation Script: Included in the repository.
+- GitHub Repository URL: [Repository URL](https://github.com/MohamedHazem5/UrWave-Product-Managment-Task)
+- Database Creation Script: Included in the repository in file name `DatabaseScript.md` and i will provide it here also.
+
+- ## Step 1: Create the database
+```bash
+CREATE DATABASE UrWaveProductDB;
+```
+## Step 2: Switch to the newly created database
+```bash
+USE UrWaveProductDB;
+```
+## Step 3: Create the Product table
+```bash
+CREATE TABLE Product (
+    Id INT PRIMARY KEY IDENTITY(1,1), -- Auto-incrementing primary key
+    Name NVARCHAR(255) NOT NULL,       -- Product name (max length of 255 characters)
+    Description NVARCHAR(MAX) NOT NULL, -- Product description (can store large text)
+    Price FLOAT NOT NULL,              -- Product price
+    CreatedDate DATETIME NOT NULL DEFAULT GETUTCDATE(), -- Created date (defaults to UTC now)
+    ImageUrl NVARCHAR(2083) NOT NULL   -- Image URL (maximum length of URL allowed in SQL Server)
+);
+```
+## Step 4: Verify the table and sample data
+```bash
+SELECT * FROM Product;
+```
 
 ## Technical Overview
 
