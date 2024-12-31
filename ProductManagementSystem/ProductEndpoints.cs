@@ -23,7 +23,10 @@ namespace ProductManagementSystem
             {
                 Name = dto.Name,
                 Description = dto.Description,
-                Price = dto.Price
+                Price = dto.Price,
+                CreatedDate = DateTime.UtcNow,
+                // Bonus
+                ImageUrl = dto.ImageUrl
             };
             var createdProduct = await repo.CreateProductAsync(newProduct);
             return Results.Created($"/products/{createdProduct.Id}", createdProduct);
@@ -36,7 +39,9 @@ namespace ProductManagementSystem
                 Id = id,
                 Name = dto.Name,
                 Description = dto.Description,
-                Price = dto.Price
+                Price = dto.Price,
+                // Bonus
+                ImageUrl = dto.ImageUrl
             };
             var updatedProduct = await repo.UpdateProductAsync(product);
             return updatedProduct is not null ? Results.Ok(updatedProduct) : Results.NotFound();

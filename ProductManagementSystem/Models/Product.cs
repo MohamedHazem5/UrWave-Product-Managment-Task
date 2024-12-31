@@ -7,5 +7,8 @@ namespace ProductManagementSystem.Models
         public string Description { get; set; } = string.Empty;
         public double Price { get; set; }
         public DateTime CreatedDate { get; set; } = DateTime.UtcNow;
+
+        // Bonus
+        public string ImageUrl { get; set; } = string.Empty;
     }
 }

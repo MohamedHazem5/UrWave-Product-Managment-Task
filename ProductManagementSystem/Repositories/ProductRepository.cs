@@ -97,6 +97,8 @@ namespace ProductManagementSystem.Repositories
                 existingProduct.Name = product.Name;
                 existingProduct.Description = product.Description;
                 existingProduct.Price = product.Price;
+                existingProduct.ImageUrl = product.ImageUrl;
+                
 
                 await _context.SaveChangesAsync();
                 _logger.LogInformation("Product with ID {Id} updated successfully.", product.Id);
