@@ -171,3 +171,10 @@
     min-width: 200px;
   }
 }
+.price-input {
+  margin-left: 10px;
+  padding: 5px;
+  width: 100px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

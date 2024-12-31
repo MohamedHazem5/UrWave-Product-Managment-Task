@@ -1,13 +1,13 @@
 import {
-  NgControl,
-  NgModel
-} from "./chunk-QTX5INRL.js";
-import {
   BaseComponent,
   BaseStyle
-} from "./chunk-2KFJNJD2.js";
-import "./chunk-7AG2MORC.js";
-import "./chunk-7W4CBEVT.js";
+} from "./chunk-PMVUK7QN.js";
+import "./chunk-UPX52RQM.js";
+import {
+  NgControl,
+  NgModel
+} from "./chunk-2L52QAM2.js";
+import "./chunk-ZIUK3XR4.js";
 import {
   Directive,
   EventEmitter,
@@ -32,7 +32,7 @@ import {
   ɵɵgetInheritedFactory,
   ɵɵlistener,
   ɵɵsetNgModuleScope
-} from "./chunk-V4NZIZQO.js";
+} from "./chunk-7ELZW7HD.js";
 import "./chunk-WDMUDEB6.js";
 
 // node_modules/primeng/fesm2022/primeng-textarea.mjs

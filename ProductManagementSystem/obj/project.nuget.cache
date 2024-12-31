@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zTeebkG8eHFRIaDHGap/s11Fj36QWvJOj4UWjNSVxWf0r4+gRHWmHpuU4BpAzQmtXqWmk9mc4YcqdP53dIyWeA==",
+  "dgSpecHash": "5aY7yi9J6m/gdE/eeIKrm1knap2/8YDodr3JeG290Dx2ts3fxABtAD/lDgZkaCx/LZbU7m3fWOIlHwdFg4lO9Q==",
   "success": true,
-  "projectFilePath": "d:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj",
+  "projectFilePath": "D:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\10\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\10\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

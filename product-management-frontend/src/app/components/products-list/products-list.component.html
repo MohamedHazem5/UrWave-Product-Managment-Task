@@ -9,6 +9,20 @@
         (input)="filterProducts()"
         class="search-input"
       />
+      <input
+        type="number"
+        placeholder="Min price"
+        [(ngModel)]="minPrice"
+        (input)="filterProducts()"
+        class="price-input"
+      />
+      <input
+        type="number"
+        placeholder="Max price"
+        [(ngModel)]="maxPrice"
+        (input)="filterProducts()"
+        class="price-input"
+      />
       <button (click)="navigateToCreateProduct()" class="create-button">
         <fa-icon [icon]="faPlus"></fa-icon>
         Create Product

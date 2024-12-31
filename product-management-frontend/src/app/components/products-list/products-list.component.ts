@@ -20,13 +20,15 @@ export class ProductsListComponent implements OnInit {
   faPlus = faPlus;
   faEdit = faEdit;
   faTrash = faTrash;
-  faSearch = faSearch; // Add the search icon here
+  faSearch = faSearch;
   products: Product[] = [];
   filteredProducts: Product[] = [];
   searchTerm: string = '';
   loading = true;
-  sortField: string = 'id'; // Default sorting field
-  sortOrder: number = 1; // Default sorting order (ascending)
+  minPrice: number | null = null;
+  maxPrice: number | null = null;
+  sortField: string = 'id';
+  sortOrder: number = 1;
 
   constructor(
     private productService: ProductService,
@@ -64,11 +66,18 @@ export class ProductsListComponent implements OnInit {
     });
   }
 
-  filterProducts(): void {
+filterProducts(): void {
     const term = this.searchTerm.toLowerCase();
-    this.filteredProducts = this.products.filter((product) =>
-      product.name.toLowerCase().includes(term)
-    );
+    const min = this.minPrice ?? 0; // Default to 0 if null
+    const max = this.maxPrice ?? Number.MAX_VALUE; // Default to max value if null
+
+    this.filteredProducts = this.products.filter((product) => {
+      const matchesSearch = product.name.toLowerCase().includes(term);
+      const matchesPrice =
+        product.price >= min && product.price <= max;
+
+      return matchesSearch && matchesPrice;
+    });
   }
 
   onSort(event: any): void {
@@ -82,7 +91,7 @@ export class ProductsListComponent implements OnInit {
     const order = this.sortOrder;
     this.filteredProducts.sort((a, b) => {
       let valueA = a[field as keyof Product];
-      let valueB = b[field as keyof Product];  
+      let valueB = b[field as keyof Product];
       // If the values are strings, convert them to lowercase
       if (typeof valueA === 'string' && typeof valueB === 'string') {
         valueA = valueA.toLowerCase();

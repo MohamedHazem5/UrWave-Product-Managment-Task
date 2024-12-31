@@ -1,6 +1,6 @@
 import {
   CommonModule
-} from "./chunk-7W4CBEVT.js";
+} from "./chunk-ZIUK3XR4.js";
 import {
   Component,
   Directive,
@@ -20,7 +20,7 @@ import {
   ɵɵprojection,
   ɵɵprojectionDef,
   ɵɵsetNgModuleScope
-} from "./chunk-V4NZIZQO.js";
+} from "./chunk-7ELZW7HD.js";
 
 // node_modules/@primeuix/utils/dom/index.mjs
 function hasClass(element, className) {
@@ -1714,4 +1714,4 @@ export {
   TranslationKeys,
   TreeDragDropService
 };
-//# sourceMappingURL=chunk-7AG2MORC.js.map
+//# sourceMappingURL=chunk-UPX52RQM.js.map

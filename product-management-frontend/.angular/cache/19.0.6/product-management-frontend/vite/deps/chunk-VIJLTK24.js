@@ -1,11 +1,11 @@
 import {
   AutoFocus,
   SpinnerIcon
-} from "./chunk-LLONSK6E.js";
+} from "./chunk-GDKIWVNU.js";
 import {
   BaseComponent,
   BaseStyle
-} from "./chunk-2KFJNJD2.js";
+} from "./chunk-PMVUK7QN.js";
 import {
   PrimeTemplate,
   SharedModule,
@@ -22,7 +22,7 @@ import {
   remove,
   removeClass,
   uuid
-} from "./chunk-7AG2MORC.js";
+} from "./chunk-UPX52RQM.js";
 import {
   CommonModule,
   NgClass,
@@ -30,7 +30,7 @@ import {
   NgStyle,
   NgTemplateOutlet,
   isPlatformBrowser
-} from "./chunk-7W4CBEVT.js";
+} from "./chunk-ZIUK3XR4.js";
 import {
   ChangeDetectionStrategy,
   Component,
@@ -90,7 +90,7 @@ import {
   ɵɵtemplate,
   ɵɵtext,
   ɵɵtextInterpolate
-} from "./chunk-V4NZIZQO.js";
+} from "./chunk-7ELZW7HD.js";
 
 // node_modules/primeng/fesm2022/primeng-badge.mjs
 var theme = ({
@@ -2713,4 +2713,4 @@ export {
   Button,
   ButtonModule
 };
-//# sourceMappingURL=chunk-H5CDM626.js.map
+//# sourceMappingURL=chunk-VIJLTK24.js.map

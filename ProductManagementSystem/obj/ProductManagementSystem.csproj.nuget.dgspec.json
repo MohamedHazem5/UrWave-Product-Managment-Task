@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj": {}
+    "D:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj": {}
   },
   "projects": {
-    "d:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj": {
+    "D:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj",
+        "projectUniqueName": "D:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj",
         "projectName": "ProductManagementSystem",
-        "projectPath": "d:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj",
+        "projectPath": "D:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\ProductManagementSystem.csproj",
         "packagesPath": "C:\\Users\\10\\.nuget\\packages\\",
-        "outputPath": "d:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\obj\\",
+        "outputPath": "D:\\Bussines\\Interview Tasks\\UrWave\\ProductManagementSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\10\\AppData\\Roaming\\NuGet\\NuGet.Config",
