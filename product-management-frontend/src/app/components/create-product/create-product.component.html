@@ -1,13 +1,12 @@
-
-  <div class="top-left-button">
-    <button
-      pButton
-      icon="fas fa-arrow-left"
-      label="Back to Products"
-      class="back-button"
-      (click)="navigateToProductPage()"
-    ></button>
-  </div>
+<div class="top-left-button">
+  <button
+    pButton
+    icon="fas fa-arrow-left"
+    label="Back to Products"
+    class="back-button"
+    (click)="navigateToProductPage()"
+  ></button>
+</div>
 
 <div class="form-container">
   <div class="form-header">
@@ -72,6 +71,27 @@
       <small class="error-message" *ngIf="hasError('price')">
         Price is required and must be positive.
       </small>
+    </div>
+
+    <div class="form-field">
+      <label for="imageUrl" class="field-label">Image URL</label>
+      <div class="input-container">
+        <i class="fas fa-link input-icon"></i>
+        <input
+          id="imageUrl"
+          formControlName="imageUrl"
+          pInputText
+          class="p-inputtext-lg"
+          placeholder="Enter image URL"
+          (input)="onImageUrlChange()"
+        />
+      </div>
+      <small class="error-message" *ngIf="hasError('imageUrl')">
+        Image URL is required and must be a valid URL.
+      </small>
+      <div class="image-preview" *ngIf="imagePreview">
+        <img [src]="imagePreview" alt="Image Preview" class="preview-image" />
+      </div>
     </div>
 
     <div class="form-actions">

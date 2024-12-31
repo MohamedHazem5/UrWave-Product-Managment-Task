@@ -55,6 +55,7 @@ export class ProductsListComponent implements OnInit {
         this.products = data;
         this.filteredProducts = data;
         this.loading = false;
+        
       },
       error: () => {
         this.loading = false;

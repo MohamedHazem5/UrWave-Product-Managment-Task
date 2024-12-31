@@ -9,6 +9,7 @@ export interface Product {
   description: string;
   price: number;
   createdDate: string;
+  imageUrl: string; // Bonus
 }
 
 

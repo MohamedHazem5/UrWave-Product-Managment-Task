@@ -50,6 +50,9 @@
           ID
           <p-sortIcon field="id"></p-sortIcon>
         </th>
+        <th pSortableColumn="imageUrl">
+          Image
+        </th>
         <th pSortableColumn="name">
           Name
           <p-sortIcon field="name"></p-sortIcon>
@@ -73,6 +76,15 @@
     <ng-template pTemplate="body" let-product>
       <tr>
         <td>{{ product.id }}</td>
+        <td>
+          <img
+            [src]="product.imageUrl"
+            alt="{{ product.name }}"
+            class="product-image"
+            *ngIf="product.imageUrl"
+          />
+          <span *ngIf="!product.imageUrl">No image</span>
+        </td>
         <td>{{ product.name }}</td>
         <td>{{ product.description }}</td>
         <td>{{ product.price | currency }}</td>

@@ -8,7 +8,6 @@
   ></button>
 </div>
 
-
 <div class="form-container">
   <div class="form-header">
     <h2 class="form-title">Edit Product</h2>
@@ -16,6 +15,7 @@
   </div>
 
   <form [formGroup]="editProductForm" (ngSubmit)="onSubmit()" class="product-form">
+    <!-- Name Field -->
     <div class="form-field">
       <label for="name" class="field-label">Product Name</label>
       <div class="input-container">
@@ -33,6 +33,7 @@
       </small>
     </div>
 
+    <!-- Description Field -->
     <div class="form-field">
       <label for="description" class="field-label">Description</label>
       <div class="input-container textarea-container">
@@ -52,6 +53,7 @@
       </small>
     </div>
 
+    <!-- Price Field -->
     <div class="form-field">
       <label for="price" class="field-label">Price</label>
       <div class="input-container">
@@ -74,6 +76,31 @@
       </small>
     </div>
 
+    <!-- Image URL Field -->
+    <div class="form-field">
+      <label for="imageUrl" class="field-label">Image URL</label>
+      <div class="input-container">
+        <i class="fas fa-image input-icon"></i>
+        <input
+          id="imageUrl"
+          formControlName="imageUrl"
+          pInputText
+          class="p-inputtext-lg"
+          placeholder="Enter image URL"
+        />
+      </div>
+    </div>
+
+    <!-- Display Image -->
+    <div class="image-preview" *ngIf="editProductForm.get('imageUrl')?.value">
+      <img
+        [src]="editProductForm.get('imageUrl')?.value"
+        alt="Product Image"
+        class="product-image"
+      />
+    </div>
+
+    <!-- Submit Button -->
     <div class="form-actions">
       <button
         pButton

@@ -36,7 +36,8 @@ export class EditProductComponent implements OnInit {
     this.editProductForm = this.fb.group({
       name: ['', [Validators.required, Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.maxLength(500)]],
-      price: [0, [Validators.required, Validators.min(0)]]
+      price: [0, [Validators.required, Validators.min(0)]],
+      imageUrl: [''], // Bonus
     });
 
     this.loadProduct();
@@ -49,6 +50,7 @@ export class EditProductComponent implements OnInit {
           name: product.name,
           description: product.description,
           price: product.price,
+          imageUrl: product.imageUrl,
         });
       },
       error: (error) => {
